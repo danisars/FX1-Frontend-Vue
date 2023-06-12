@@ -1,0 +1,42 @@
+fragment NotificationContents on Notification {
+  id
+  createdAt
+  messageID
+  chatID
+  channelSlug
+  type
+  isRead
+  channelName
+  LockerRoom {
+    name
+    slug
+    isSupported
+  }
+  Message {
+    createdAt
+    text
+    User {
+      id
+      username
+      Avatar {
+        PhotoURL
+      }
+    }
+    PhotoURLs {
+      type
+      photoURL
+    }
+    RepliedTo {
+      createdAt
+      text
+      PhotoURLs {
+        type
+        photoURL
+      }
+      User {
+        id
+        username
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+#import './fragment/ChannelGroup.graphql'
+
+query getSport($id: String, $slug: String) {
+  getSport(id: $id, slug: $slug) {
+    status
+    Avatar {
+      PhotoURL
+    }
+    CoverPhoto {
+      PhotoURL
+    }
+    LockerRooms {
+      items {
+        id
+        name
+        slug
+        defaultChannelSlug
+        supporterCount
+        isSupported
+        MyRole {
+          role
+        }
+        Sports {
+          name
+          CoverPhoto {
+            PhotoURL
+          }
+        }
+        Club {
+          Avatar {
+            PhotoURL
+          }
+          CoverPhoto {
+            PhotoURL
+          }
+          name
+          leagueName
+        }
+        League {
+          Avatar {
+            PhotoURL
+          }
+          CoverPhoto {
+            PhotoURL
+          }
+          name
+        }
+        FanGroup {
+          Avatar {
+            PhotoURL
+          }
+          CoverPhoto {
+            PhotoURL
+          }
+          name
+        }
+        ChannelGroups {
+          ...ChannelGroupsContents
+        }
+      }
+    }
+  }
+}

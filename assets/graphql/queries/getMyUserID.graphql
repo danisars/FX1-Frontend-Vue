@@ -1,0 +1,5 @@
+query getMyUserID {
+  Me {
+    id
+  }
+}

@@ -1,0 +1,115 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: fx1-public
+  labels:
+    name: fx1-public
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fx1-public-frontend-config-map
+  namespace: fx1-public
+data:
+  APP_ENV: "${env.APP_ENV}"
+  GRAPHQL_URL: "${env.GRAPHQL_URL}"
+  SOCKET_URL: "${env.SOCKET_URL}"
+  SENTRY_DSN: "${env.SENTRY_DSN}"
+---
+apiVersion: v1
+kind: Secret
+stringData:
+  FIREBASE_CONFIG: ${env.FIREBASE_CONFIG}
+metadata:
+  name: fx1-public-frontend-secrets
+  namespace: fx1-public
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fx1-public-frontend-deployment
+  namespace: fx1-public
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: fx1-public-frontend-deployment
+  template:
+    metadata:
+      labels:
+        component: fx1-public-frontend-deployment
+    spec:
+      containers:
+        - name: fx1-public-frontend
+          image: gcr.io/${env.GCLOUD_PROJECT}/ap-frontend:${env.IMAGE_TAG}-${env.BITBUCKET_COMMIT}
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: fx1-public-frontend-config-map
+            - secretRef:
+                name: fx1-public-frontend-secrets
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 3000
+            timeoutSeconds: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fx1-public-frontend-service
+  namespace: fx1-public
+spec:
+  type: ClusterIP
+  selector:
+    component: fx1-public-frontend-deployment
+  ports:
+    - name: http
+      targetPort: 3000
+      port: 3000
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: fx1-public-frontend-certificate
+  namespace: fx1-public
+spec:
+  domains:
+      - ${env.DOMAIN}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fx1-public-frontend-ingress
+  namespace: fx1-public
+  labels:
+    app: fx1-public-frontend-deployment
+  annotations:
+    networking.gke.io/v1beta1.FrontendConfig: fx1-public-frontend-frontend
+    # kubernetes.io/ingress.global-static-ip-name: fx1-public-frontend-ip
+    networking.gke.io/managed-certificates: fx1-public-frontend-certificate
+spec:
+  rules:
+    - host: "${env.DOMAIN}"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: fx1-public-frontend-service
+                port:
+                  number: 3000
+---
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: fx1-public-frontend-frontend
+  namespace: fx1-public
+spec:
+  redirectToHttps:
+    enabled: true
+    responseCodeName: PERMANENT_REDIRECT

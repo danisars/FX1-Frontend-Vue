@@ -1,0 +1,23 @@
+query getAvailableMemebersForPrivateChannel(
+  $lockerRoomID: String!
+  $next: String
+  $count: Int
+  $name: String
+) {
+  getAvailableUsersForPrivateChannel(
+    lockerRoomID: $channelID
+    next: $next
+    count: $count
+    name: $name
+  ) {
+    count
+    next
+    items {
+      username
+      id
+      Avatar {
+        PhotoURL
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+query getPhotoURL($objectID: String!, $objectType: String!, $type: String) {
+  getPhotoURL(objectID: $objectID, objectType: $objectType, type: $type)
+}

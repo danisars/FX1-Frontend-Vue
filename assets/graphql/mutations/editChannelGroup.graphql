@@ -1,0 +1,8 @@
+mutation editChannelGroup($id: String!, $input: InputEditChannelGroup!) {
+  editChannelGroup(id: $id, input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

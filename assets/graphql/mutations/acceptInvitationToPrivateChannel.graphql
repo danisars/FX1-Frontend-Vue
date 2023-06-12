@@ -1,0 +1,8 @@
+mutation acceptInvitationToPrivateChannel($token: String!) {
+  acceptInvitationToPrivateChannel(token: $token) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,7 @@
+#import '../fragments/LockerRoom.graphql'
+
+query getLockerRoom($id: String, $slug: String, $group: String) {
+  getLockerRoom(id: $id, slug: $slug, $group: String) {
+    ...LockerRoomContents
+  }
+}

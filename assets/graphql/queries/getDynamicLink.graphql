@@ -1,0 +1,9 @@
+query getDynamicLink(
+    $privateChannelID: String!,
+    $gameID: String!
+) {
+    getDynamicEventInviteLink(
+        privateChannelID: $privateChannelID,
+        gameID: $gameID
+    )
+}

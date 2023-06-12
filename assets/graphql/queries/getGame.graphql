@@ -1,0 +1,37 @@
+query getGame($gameID: Int!) {
+  getGame(gameID: $gameID) {
+    group
+    sport
+    gameID
+    date
+    points
+    team1ID
+    team1City
+    team1Name
+    team1Ranking
+    team1Score
+    team1Color
+    team2ID
+    team2City
+    team2Name
+    team2Ranking
+    team2Score
+    team2Color
+    location
+    headline
+    links {
+        source
+        type
+        url
+        iconUrl
+    }
+    timeLeft
+    competition
+    coverImage
+    pointsLevel
+    highPoints
+    leagueCode
+    isReminded
+    isLive
+  }
+}

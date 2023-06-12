@@ -1,0 +1,8 @@
+mutation readNotification($notificationIDs: [String!]!) {
+  readNotification(notificationIDs: $notificationIDs) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

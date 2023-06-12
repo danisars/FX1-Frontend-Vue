@@ -1,0 +1,10 @@
+fragment FanGroupContents on FanGroup {
+  name
+  slug
+  Avatar {
+    PhotoURL
+  }
+  CoverPhoto {
+    PhotoURL
+  }
+}

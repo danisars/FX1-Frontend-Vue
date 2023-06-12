@@ -1,0 +1,7 @@
+#import '../fragments/Channel.graphql'
+
+query getChannel($id: String, $slug: String) {
+  getChannel(id: $id, slug: $slug) {
+    ...ChannelContents
+  }
+}

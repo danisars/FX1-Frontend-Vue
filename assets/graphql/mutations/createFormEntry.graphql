@@ -1,0 +1,5 @@
+mutation createFormEntry($type: String! , $data: JSON){
+  createFormEntry(type: $type ,data: $data){
+    objectID
+  }
+}

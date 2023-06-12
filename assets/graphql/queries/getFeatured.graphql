@@ -1,0 +1,37 @@
+query getFeatured {
+  getFeatured {
+    name
+    slug
+    defaultChannelSlug
+    supporterCount
+    Sports {
+      CoverPhoto {
+        PhotoURL
+      }
+    }
+    Club {
+      Avatar {
+        PhotoURL
+      }
+      CoverPhoto {
+        PhotoURL
+      }
+    }
+    League {
+      Avatar {
+        PhotoURL
+      }
+      CoverPhoto {
+        PhotoURL
+      }
+    }
+    FanGroup {
+      Avatar {
+        PhotoURL
+      }
+      CoverPhoto {
+        PhotoURL
+      }
+    }
+  }
+}

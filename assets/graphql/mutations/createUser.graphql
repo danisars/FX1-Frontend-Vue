@@ -1,0 +1,8 @@
+mutation createUser($input: InputUser!) {
+  createUser(input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

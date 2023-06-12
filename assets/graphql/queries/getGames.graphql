@@ -1,0 +1,59 @@
+query getGames(
+  $next: String,
+  $type: String!,
+  $count: Int,
+  $leagueCodes: String,
+  $partnerNames: String
+) {
+  getGames(
+    next: $next,
+    type: $type,
+    count: $count,
+    leagueCodes: $leagueCodes,
+    partnerNames: $partnerNames
+  ) {
+    items {
+      sport
+      gameID
+      date
+      points
+      team1ID
+      team1City
+      team1Name
+      team1Nickname
+      team1DisplayName
+      team1Ranking
+      team1Score
+      team1Color
+      team1Logo
+      team2ID
+      team2City
+      team2Name
+      team2Nickname
+      team2DisplayName
+      team2Ranking
+      team2Score
+      team2Color
+      team2Logo
+      location
+      headline
+      links {
+        source
+        type
+        url
+        iconUrl
+      }
+      timeLeft
+      competition
+      coverImage
+      pointsLevel
+      highPoints
+      leagueCode
+      isReminded
+      excitementLevel
+    }
+    count
+    next
+    total
+  }
+}

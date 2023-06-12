@@ -1,0 +1,12 @@
+#import './fragment/Media.graphql'
+
+fragment UserContents on User {
+  id
+  username
+  slug
+  emailAddress
+  name
+  Avatar {
+    PhotoURL
+  }
+}

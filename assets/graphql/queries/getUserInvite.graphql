@@ -1,0 +1,10 @@
+query getUserInvite($id: String!) {
+  getUserInvite(id: $id) {
+    id
+    type
+    group
+    data {
+      emailAddress
+    }
+  }
+}

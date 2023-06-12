@@ -1,0 +1,18 @@
+$mobileSM: '320px';
+$mobileLG: '427px';
+$tabletSM: '699px';
+$tabletLG: '768px';
+$BPdesktop: '1024px';
+$BPwidescreen: '1216px';
+
+@mixin max-width($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin min-width($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

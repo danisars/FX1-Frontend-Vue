@@ -1,0 +1,9 @@
+#import '../fragments/LockerRoom.graphql'
+
+query getMyProfileSupporting {
+  Me {
+    Supporting {
+      ...LockerRoomContents
+    }
+  }
+}

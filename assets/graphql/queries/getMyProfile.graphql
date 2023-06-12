@@ -1,0 +1,14 @@
+query getMyProfile {
+  Me {
+    id
+    username
+    slug
+    uid
+    emailAddress
+    Avatar {
+      PhotoURL
+    }
+    name
+    unseenNotifications
+  }
+}

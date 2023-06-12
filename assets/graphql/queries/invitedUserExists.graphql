@@ -1,0 +1,3 @@
+query invitedUserExists($id: String!) {
+  invitedUserExists(id: $id)
+}

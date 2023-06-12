@@ -1,0 +1,34 @@
+mutation trackRegisterAccount(
+  $username: String!
+  $emailAddress: String!
+  $avatar: String!
+  $registrationMethod: String!
+  $platform: String!
+  $webDisplaySize: String
+  $pageName: String!
+  $model: String
+  $browser: String
+  $browserVersion: String
+  $os: String
+  $avatarObjectID: String
+) {
+  trackRegisterAccount(
+    username: $username
+    emailAddress: $emailAddress
+    avatar: $avatar
+    registrationMethod: $registrationMethod
+    platform: $platform
+    webDisplaySize: $webDisplaySize
+    pageName: $pageName
+    model: $model
+    browser: $browser
+    browserVersion: $browserVersion
+    os: $os
+    avatarObjectID: $avatarObjectID
+  ) {
+    success
+    timestamp
+    objectID
+    objectType
+  }
+}

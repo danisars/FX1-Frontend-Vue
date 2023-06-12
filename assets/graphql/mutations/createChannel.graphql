@@ -1,0 +1,8 @@
+mutation createChannel($input: InputCreateChannel!) {
+  createChannel(input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

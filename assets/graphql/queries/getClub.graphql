@@ -1,0 +1,7 @@
+#import '../fragments/Club.graphql'
+
+query getClub($id: String, $slug: String) {
+  getClub(id: $id, slug: $slug) {
+    ...ClubContents
+  }
+}

@@ -1,0 +1,16 @@
+mutation deleteMessage(
+  $chatID: String!
+  $deleteForSelf: Boolean!
+  $deleteForEveryone: Boolean!
+) {
+  deleteMessage(
+    chatID: $chatID
+    deleteForSelf: $deleteForSelf
+    deleteForEveryone: $deleteForEveryone
+  ) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,8 @@
+mutation trackSupportLockerRoom ($name: String! , $lockerRoomType: String! , $sport: String!, $league: String, $ip: String, $platform: String!, $webDisplaySize: String, $pageName: String!, $model: String, $browser: String, $browserVersion: String, $os: String) {
+  trackSupportLockerRoom (name: $name , lockerRoomType: $lockerRoomType  , sport: $sport, league: $league, ip: $ip, platform: $platform, webDisplaySize: $webDisplaySize, pageName: $pageName, model: $model, browser: $browser, browserVersion: $browserVersion, os: $os) {
+    objectID
+    objectType
+    success
+    timestamp
+  }
+}

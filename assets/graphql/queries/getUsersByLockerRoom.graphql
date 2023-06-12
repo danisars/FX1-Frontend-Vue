@@ -1,0 +1,11 @@
+query getUsersByLockerRoom($lockerRoomID: String!, $text: String) {
+  getUsersByLockerRoom(lockerRoomID: $lockerRoomID, text: $text) {
+    items {
+      id
+      username
+      Avatar {
+        PhotoURL
+      }
+    }
+  }
+}

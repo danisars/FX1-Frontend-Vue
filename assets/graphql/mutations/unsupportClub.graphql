@@ -1,0 +1,8 @@
+mutation unsupportClub($lockerRoomID: String!) {
+  unsupport(lockerRoomID: $lockerRoomID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,11 @@
+mutation updateLockerRoomUserRoles(
+  $lockerRoomID: String!
+  $input: [InputUpdateLockerRoomUserRoles!]!
+) {
+  updateLockerRoomUserRoles(lockerRoomID: $lockerRoomID, input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

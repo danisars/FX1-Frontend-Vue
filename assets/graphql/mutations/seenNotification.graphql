@@ -1,0 +1,8 @@
+mutation seenNotification($lastNotificationID: String!) {
+  seenNotification(lastNotificationID: $lastNotificationID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

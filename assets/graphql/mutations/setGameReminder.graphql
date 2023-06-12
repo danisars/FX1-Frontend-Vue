@@ -1,0 +1,8 @@
+mutation setGameReminder($gameID: String!) {
+  setGameReminder(gameID: $gameID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

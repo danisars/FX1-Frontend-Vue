@@ -1,0 +1,15 @@
+query getSportsHomePage {
+  getSports {
+    items {
+      name
+      slug
+      status
+      CoverPhoto {
+        PhotoURL
+      }
+      LockerRooms {
+        count
+      }
+    }
+  }
+}

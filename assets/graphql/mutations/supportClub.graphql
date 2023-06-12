@@ -1,0 +1,8 @@
+mutation supportClub($lockerRoomID: String!) {
+  support(lockerRoomID: $lockerRoomID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

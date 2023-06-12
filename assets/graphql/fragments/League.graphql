@@ -1,0 +1,12 @@
+#import './Media.graphql'
+
+fragment LeagueContents on League {
+  name
+  slug
+  Avatar {
+    PhotoURL
+  }
+  CoverPhoto {
+    PhotoURL
+  }
+}

@@ -1,0 +1,34 @@
+mutation trackCreatePrivateRoom(
+  $sport: String!
+  $league: String
+  $name: String!
+  $platform: String!
+  $homeTeam: String!
+  $awayTeam: String!
+  $webDisplaySize: String
+  $pageName: String
+  $model: String
+  $browser: String
+  $browserVersion: String
+  $os: String
+) {
+  trackCreatePrivateRoom(
+    sport: $sport
+    league: $league
+    name: $name
+    platform: $platform
+    homeTeam: $homeTeam
+    awayTeam: $awayTeam
+    webDisplaySize: $webDisplaySize
+    pageName: $pageName
+    model: $model
+    browser: $browser
+    browserVersion: $browserVersion
+    os: $os
+  ) {
+    objectID
+    objectType
+    success
+    timestamp
+  }
+}

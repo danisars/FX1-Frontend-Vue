@@ -1,0 +1,213 @@
+@import '~assets/css/vars/colors.scss';
+
+$token-h2: 44px;
+$token-p: 18px;
+
+.token-p,
+.token-p2,
+.token-p3,
+.token-p4 {
+  font-size: $token-p;
+  font-weight: 100;
+  line-height: 1.8;
+  color: white;
+}
+
+.token-p2 {
+  font-size: 24px !important;
+  font-weight: 400 !important;
+}
+
+.token-p3 {
+  font-size: 20px !important;
+  font-weight: 400;
+}
+
+.token-p4 {
+  font-size: 44px !important;
+}
+
+.token-u {
+  list-style: outside !important;
+  padding-left: 2%;
+}
+
+.token-h1 {
+  margin-bottom: 25px;
+  font-size: 100px;
+  letter-spacing: 0.01em;
+  font-weight: bold !important;
+  line-height: 100px;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.token-h2,
+.token-h2-b,
+.token-h2-c {
+  color: $primary;
+  font-size: $token-h2;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.token-h2-b {
+  color: $dark-white !important;
+}
+
+.token-h2-c {
+  color: white !important;
+  font-weight: 400;
+}
+
+.token-container-howToBuy {
+  margin-left: 18%;
+  margin-right: 18%;
+  max-width: 100% !important;
+}
+
+.token-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 100% !important;
+}
+.actions {
+  .button {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    border-radius: 8px;
+  }
+}
+.address {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: $white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  span {
+    margin-left: 5px;
+    color: #00e709;
+  }
+}
+
+// RESPONSIVE
+
+// Desktop
+@include max-width(1215px) {
+  .token-h1 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+
+@include max-width(1600px) {
+  .token-p3 {
+    font-size: 18px !important;
+  }
+}
+
+@include max-width(1450px) {
+  .token-p3 {
+    font-size: 16px !important;
+  }
+  .token-u {
+    padding-left: 4%;
+  }
+}
+
+// Tablet
+@include max-width(1021px) {
+  .token-container-howToBuy,
+  .token-container {
+    margin-left: 2%;
+    margin-right: 2%;
+    max-width: 100% !important;
+  }
+
+  .token-p {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  .token-h1 {
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: bold !important;
+    -webkit-text-stroke: 0px black;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .token-h2 {
+    font-size: 28px !important;
+    line-height: 32px !important;
+  }
+
+  .token-h2-c {
+    font-size: 22px !important;
+    line-height: 28px !important;
+    font-weight: 100;
+  }
+}
+
+// Mobile
+@include max-width(500px) {
+  .top-margin-a {
+    margin-top: 25px !important;
+  }
+  .xp-token {
+    .col {
+      flex: none !important;
+      width: 100% !important;
+      margin: 0px !important;
+    }
+  }
+
+  .token-container-howToBuy,
+  .token-container {
+    margin-left: 2%;
+    margin-right: 2%;
+    max-width: 100% !important;
+  }
+
+  .token-p {
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+
+  .token-h1 {
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: bold !important;
+    -webkit-text-stroke: 0px black;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .token-h2 {
+    font-size: 24px !important;
+    line-height: 25px !important;
+  }
+
+  .token-h2-c {
+    font-size: 20px !important;
+    line-height: 25px !important;
+    font-weight: 100;
+  }
+
+  .actions {
+    margin: 70px 0 25px !important;
+
+    .button {
+      width: 46% !important;
+      height: 60px !important;
+      margin-left: 2% !important;
+      margin-right: 2% !important;
+      font-size: 16px;
+    }
+  }
+  .address {
+    span {
+      display: inline-block;
+    }
+  }
+}

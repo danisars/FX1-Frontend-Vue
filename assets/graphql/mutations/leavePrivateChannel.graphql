@@ -1,0 +1,6 @@
+mutation leavePrivateChannel($privateChannelID: String!) {
+  leavePrivateChannel(privateChannelID: $privateChannelID) {
+    success
+    objectID
+  }
+}

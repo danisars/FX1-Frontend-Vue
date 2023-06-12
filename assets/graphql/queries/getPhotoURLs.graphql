@@ -1,0 +1,3 @@
+query getPhotoURLs($input: [InputQueryMedia!]!) {
+  getPhotoURLs(input: $input)
+}

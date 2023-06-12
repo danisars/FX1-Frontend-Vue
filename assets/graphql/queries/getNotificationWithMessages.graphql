@@ -1,0 +1,37 @@
+#import './fragments/Notification.graphql'
+#import './fragments/Message.graphql'
+
+query getNotificationWithMessages($id: String!) {
+  getNotificationWithMessages(id: $id) {
+    Notification {
+      ...NotificationContents
+    }
+    Messages {
+      createdAt
+      text
+      User {
+        id
+        username
+        Avatar {
+          PhotoURL
+        }
+      }
+      PhotoURLs {
+        type
+        photoURL
+      }
+      RepliedTo {
+        createdAt
+        text
+        PhotoURLs {
+          type
+          photoURL
+        }
+        User {
+          id
+          username
+        }
+      }
+    }
+  }
+}

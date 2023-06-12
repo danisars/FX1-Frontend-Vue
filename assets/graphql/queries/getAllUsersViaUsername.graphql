@@ -1,0 +1,13 @@
+query getAllUsersViaUsername($text: String) {
+  getAllUsersViaUsername(text: $text) {
+    items {
+      id
+      username
+      uid
+      Avatar {
+        PhotoURL
+      }
+      isBlocked
+    }
+  }
+}

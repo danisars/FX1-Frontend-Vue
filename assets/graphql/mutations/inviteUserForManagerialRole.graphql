@@ -1,0 +1,11 @@
+mutation inviteUserForManagerialRole(
+  $lockerRoomID: String!
+  $input: [InputInviteUserForManagerialRole!]!
+) {
+  inviteUserForManagerialRole(lockerRoomID: $lockerRoomID, input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

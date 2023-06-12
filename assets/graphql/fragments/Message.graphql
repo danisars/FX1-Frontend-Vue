@@ -1,0 +1,40 @@
+#import './User.graphql'
+
+fragment MessageContents on Message {
+  id
+  createdAt
+  channelSlug
+  text
+  chatID
+  repliedToChatID
+  Media {
+    objectID
+    objectType
+    PhotoURL(type: "640x360")
+  }
+  PhotoURLs {
+    type
+    photoURL
+  }
+  isDeletedSelf
+  isDeletedEveryone
+  isEdited
+  User {
+    ...UserContents
+  }
+  RepliedTo {
+    createdAt
+    text
+    Media {
+      objectID
+      objectType
+      PhotoURL(type: "200sq")
+    }
+    User {
+      ...UserContents
+    }
+    chatID
+    isDeletedSelf
+    isDeletedEveryone
+  }
+}

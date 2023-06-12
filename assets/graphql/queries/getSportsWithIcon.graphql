@@ -1,0 +1,18 @@
+query getSportsWithIcon {
+  getSportsWithIcon  {
+    count
+    total
+    next
+    items {
+      id
+      name
+      slug
+      Icon {
+        objectID
+        objectType
+        isSport
+        PhotoURL
+      }
+    }
+  }
+}

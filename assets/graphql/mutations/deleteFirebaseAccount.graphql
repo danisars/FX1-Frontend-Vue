@@ -1,0 +1,8 @@
+mutation deleteFirebaseAccount {
+  deleteFirebaseAccount {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,17 @@
+#import './LockerRoom.graphql'
+
+fragment SportContents on Sport {
+  name
+  slug
+  Avatar {
+    PhotoURL
+  }
+  LockerRooms(count: $count) {
+    items {
+      ...LockerRoomContents
+    }
+    count
+    next
+    total
+  }
+}

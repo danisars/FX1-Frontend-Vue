@@ -1,0 +1,8 @@
+mutation createChannelGroup($input: InputCreateChannelGroup!) {
+  createChannelGroup(input: $input) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

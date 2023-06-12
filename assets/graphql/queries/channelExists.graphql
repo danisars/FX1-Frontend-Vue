@@ -1,0 +1,3 @@
+query channelExists($name: String!, $channelGroupID: String!) {
+  channelExists(name: $name, channelGroupID: $channelGroupID)
+}

@@ -1,0 +1,3 @@
+query channelGroupExists($name: String!, $lockerRoomID: String!) {
+  channelGroupExists(name: $name, lockerRoomID: $lockerRoomID)
+}

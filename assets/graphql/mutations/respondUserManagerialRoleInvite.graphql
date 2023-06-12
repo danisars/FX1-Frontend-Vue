@@ -1,0 +1,8 @@
+mutation respondUserManagerialRoleInvite($id: String!) {
+  respondUserManagerialRoleInvite(id: $id) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

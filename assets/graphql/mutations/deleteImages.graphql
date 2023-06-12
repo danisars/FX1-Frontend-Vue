@@ -1,0 +1,8 @@
+mutation deleteImages($objectIDs: [String!]!) {
+  deleteImages(objectIDs: $objectIDs) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

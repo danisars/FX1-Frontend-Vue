@@ -1,0 +1,15 @@
+query getSports {
+  getSports {
+    items {
+      name
+      slug
+      LockerRoomsByLeague {
+        leagueID
+      }
+      status
+    }
+    count
+    next
+    total
+  }
+}

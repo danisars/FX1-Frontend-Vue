@@ -1,0 +1,7 @@
+#import './fragments/Notification.graphql'
+
+query getNotification($id: String!) {
+  getNotification(id: $id) {
+    ...NotificationContents
+  }
+}

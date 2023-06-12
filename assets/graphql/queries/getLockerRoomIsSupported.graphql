@@ -1,0 +1,5 @@
+query getLockerRoomIsSupported($id: String, $slug: String) {
+  getLockerRoom(id: $id, slug: $slug) {
+    isSupported
+  }
+}

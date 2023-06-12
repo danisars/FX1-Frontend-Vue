@@ -1,0 +1,39 @@
+fragment ChannelContents on Channel {
+  id
+  name
+  slug
+  description
+  channelGroupID
+  lockerRoomID
+  type
+  Roles {
+    Owners {
+      User {
+        username
+        id
+        Avatar {
+          PhotoURL
+        }
+      }
+    }
+    Joiners {
+      User {
+        username
+        id
+        Avatar {
+          PhotoURL
+        }
+      }
+    }
+  }
+  Livestream {
+    title
+    link
+    startDate
+    isLive
+    LivestreamSource {
+      id
+      name
+    }
+  }
+}

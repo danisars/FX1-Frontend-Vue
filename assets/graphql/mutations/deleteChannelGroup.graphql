@@ -1,0 +1,8 @@
+mutation deleteChannelGroup($id: String!) {
+  deleteChannelGroup(id: $id) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

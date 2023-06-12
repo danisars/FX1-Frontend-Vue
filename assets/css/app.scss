@@ -1,0 +1,229 @@
+/* stylelint-disable no-descending-specificity */
+@import '~assets/css/lib/Alignment.scss';
+@import '~assets/css/lib/Typography.scss';
+@import '~assets/css/token.scss';
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 14px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #050505;
+}
+
+.container {
+  padding: 0 15px;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 5.7143rem;
+  letter-spacing: -2.1px;
+
+  @include max-width(1023px) {
+    font-size: 2.2857rem;
+    line-height: 3.2857rem;
+}
+}
+
+h2 {
+  font-size: 2.2857rem;
+  line-height: 2.8571rem;
+
+  @include max-width(1023px) {
+    font-size: 1.7143rem;
+    line-height: 2.4286rem;
+}
+}
+
+h3 {
+  font-size: 1.5714rem;
+  line-height: 2.4286rem;
+  letter-spacing: -0.66px;
+
+  @include max-width(1023px) {
+    font-size: 1.1429rem;
+    line-height: 2rem;
+}
+}
+
+h4 {
+  font-size: 1.1429rem;
+  line-height: 2rem;
+  letter-spacing: -0.28px;
+
+  @include max-width(767px) {
+    font-size: 1rem;
+    line-height: 26px;
+  }
+}
+
+.input-error {
+  font-size: 1.1429rem;
+  font-weight: 300;
+  color: $warning;
+}
+
+.modal {
+  .modal-background {
+    background-color: rgba(33, 33, 33, 0.4);
+}
+
+  &.right-dialog {
+    align-items: flex-end;
+
+    .modal-content {
+      margin: 0;
+      height: 100%;
+      max-height: 100%;
+
+      .card {
+        min-height: 100%;
+        border-radius: 0;
+
+        .card-content {
+          border-radius: 0;
+          padding: 60px 50px;
+
+          .close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            opacity: 0.3;
+            cursor: pointer;
+        }
+
+          form {
+            min-height: calc(100vh - 120px);
+
+            .inputs {
+              h2 {
+                color: $secondary;
+                margin-bottom: 50px;
+            }
+          }
+
+            .actions {
+              .button {
+                width: 300px;
+                height: 82px;
+                text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+.user-menu {
+  .dropdown-menu {
+    .dropdown-content {
+      padding: 0;
+
+      .dropdown-item {
+        font-size: 1.1429rem;
+        line-height: 2rem;
+        letter-spacing: -0.28px;
+        padding: 16px 20px;
+        background-color: transparent;
+        color: $secondary;
+    }
+
+      .has-link {
+        font-size: 1.1429rem;
+        line-height: 2rem;
+        letter-spacing: -0.28px;
+        padding: 16px 20px;
+        background-color: transparent;
+        color: $secondary;
+
+        &:not(:last-child) {
+          padding: 16px 20px 0;
+      }
+
+        a {
+          display: block;
+          color: $secondary;
+      }
+    }
+  }
+}
+}
+
+.channel-options,
+.managers-menu,
+.reply-to {
+  cursor: pointer;
+
+  .dropdown-menu {
+    .dropdown-content {
+      padding: 15px 0;
+
+      .dropdown-item {
+        font-size: 1.1429rem;
+        line-height: 2rem;
+        letter-spacing: -0.28px;
+        padding: 5px 30px;
+        color: $secondary;
+        background-color: transparent;
+    }
+  }
+}
+}
+
+.toasted-container {
+  .toasted {
+    &.fx1-success {
+      background-color: $white !important;
+      color: $secondary;
+      font-size: 1.1429rem;
+      line-height: 2rem;
+      letter-spacing: -0.28px;
+      font-weight: 400;
+
+      i {
+        &::before {
+          font-size: 1.4286rem;
+      }
+    }
+
+      a {
+        color: rgba($secondary, 0.5);
+        text-decoration: none !important;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 1.2857rem;
+        letter-spacing: -0.8px;
+        margin-left: 25px;
+    }
+  }
+}
+}
+
+
+.avatar-supporting {
+  position: relative;
+  .has-notif {
+    position: absolute;
+    bottom: -4px;
+    right: -9px;
+    .tag{
+      font-size: 10px !important;
+      background-color: rgb(239, 81, 81);
+    }
+  }
+}
+
+.primary-text {
+  color: $primary !important;
+}

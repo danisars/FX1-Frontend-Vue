@@ -1,0 +1,20 @@
+#import '../fragments/Message.graphql'
+
+query getMessagesByChannelSlug(
+  $channelSlug: String!
+  $count: Int
+  $cursor: Int
+) {
+  getMessagesByChannelSlug(
+    channelSlug: $channelSlug
+    count: $count
+    cursor: $cursor
+  ) {
+    items {
+      ...MessageContents
+    }
+    count
+    next
+    total
+  }
+}

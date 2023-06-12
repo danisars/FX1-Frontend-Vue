@@ -1,0 +1,96 @@
+image: node:14
+options:
+  docker: true
+  size: 2x
+
+pipelines:
+  pull-requests:
+    "**":
+      - step: &unit-tests
+          caches:
+            - docker
+          image: google/cloud-sdk:latest
+          name: Test (Dev)
+          deployment: dev-test
+          script:
+            - apt-get install -y npm
+            - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+            - apt-get update && apt-get install -yq libgconf-2-4
+            - >
+              apt-get update && apt-get install -y wget --no-install-recommends && \
+                 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -  && \
+                 sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+                 apt-get update && \
+                 apt-get install -y google-chrome-stable 
+            - npm install --global yarn
+            - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+            - \. "/root/.nvm/nvm.sh" 
+            - nvm install 14
+            - npm install wdio-chromedriver-service --save-dev
+            - npm install chromedriver --save-dev 
+            - yarn install
+            - yarn build
+            - yarn start-server-and-test dev http://localhost:3000 test 
+
+  branches:
+    develop:
+      - step: &build-frontend
+          name: Build (Dev)
+          deployment: dev-build
+          caches:
+            - node
+          script:
+            - apt-get update && apt-get install -yq libgconf-2-4
+            - >
+              apt-get update && apt-get install -y wget --no-install-recommends && \
+                 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -  && \
+                 sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+                 apt-get update && \
+                 apt-get install -y google-chrome-unstable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst --no-install-recommends
+            - npm i -g envreplace
+            - yarn install
+            - yarn build
+            - envreplace k8s.yaml
+          artifacts:
+            - .nuxt/**
+            - package-lock.json
+            - yarn.lock
+            - k8s.yaml
+      - step: &deploy-frontend
+          caches:
+            - docker
+            - node
+          image: google/cloud-sdk:latest
+          name: Deploy (Dev)
+          deployment: dev-deploy
+          script:
+            - export IMAGE_NAME=gcr.io/$GCLOUD_PROJECT/ap-frontend
+            - echo $GCLOUD_API_KEY | base64 -d > /tmp/gcloud-api-key.json
+            - gcloud auth activate-service-account --key-file /tmp/gcloud-api-key.json
+            - gcloud config set project $GCLOUD_PROJECT
+            - gcloud auth configure-docker --quiet
+            - docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:$IMAGE_TAG-$BITBUCKET_COMMIT .
+            - docker push $IMAGE_NAME:$IMAGE_TAG
+            - docker push $IMAGE_NAME:$IMAGE_TAG-$BITBUCKET_COMMIT
+            - gcloud container clusters get-credentials $GKE_CLUSTER --zone=$GKE_ZONE --project $GCLOUD_PROJECT
+            - kubectl apply -f k8s.yaml
+
+    staging: 
+      - step:
+          <<: *build-frontend
+          name: Build (Staging)
+          deployment: stag-build
+      - step:
+          <<: *deploy-frontend
+          name: Deploy (Staging)
+          deployment: stag-deploy
+
+    master:
+      - step:
+          <<: *build-frontend
+          name: Build (Production)
+          deployment: prod-build
+      - step:
+          <<: *deploy-frontend
+          name: Deploy (Production)
+          deployment: prod-deploy

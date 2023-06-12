@@ -1,0 +1,39 @@
+query getFeaturedGame {
+  getFeaturedGame {
+    sport
+    gameID
+    group
+    date
+    points
+    team1ID
+    team1City
+    team1Name
+    team1Nickname
+    team1DisplayName
+    team1Ranking
+    team1Score
+    team1Color
+    team2ID
+    team2City
+    team2Name
+    team2Nickname
+    team2DisplayName
+    team2Ranking
+    team2Score
+    team2Color
+    location
+    headline
+    links {
+      source
+      type
+      url
+    }
+    timeLeft
+    competition
+    coverImage
+    leagueCode
+    pointsLevel
+    highPoints
+    isLive
+  }
+}

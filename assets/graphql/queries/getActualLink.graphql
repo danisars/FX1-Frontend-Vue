@@ -1,0 +1,9 @@
+query getActualLink(
+    $privateChannelID: String!,
+    $gameID: String!
+) {
+    getActualEventInviteLink(
+        privateChannelID: $privateChannelID,
+        gameID: $gameID
+    )
+}

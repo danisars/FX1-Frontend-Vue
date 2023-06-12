@@ -1,0 +1,16 @@
+mutation removeUserManagerialRole(
+  $lockerRoomID: String!
+  $userID: String!
+  $role: String!
+) {
+  removeUserManagerialRole(
+    lockerRoomID: $lockerRoomID
+    userID: $userID
+    role: $role
+  ) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

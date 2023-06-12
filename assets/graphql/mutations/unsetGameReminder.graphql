@@ -1,0 +1,8 @@
+mutation unsetGameReminder($gameID: String!) {
+  unsetGameReminder(gameID: $gameID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,5 @@
+fragment MediaContents on Media {
+  objectID
+  objectType
+  PhotoURL
+}

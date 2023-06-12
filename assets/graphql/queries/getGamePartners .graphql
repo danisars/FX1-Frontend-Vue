@@ -1,0 +1,18 @@
+query getGamePartners {
+  getGamePartners  {
+    count
+    total
+    next
+    items {
+      id
+      name
+      slug
+      isHidden
+      Icon {
+        objectID
+        objectType
+        PhotoURL
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+mutation trackSendMessage(
+  $sport: String!
+  $league: String
+  $channel: String!
+  $type: String!
+  $platform: String!
+  $webDisplaySize: String
+  $pageName: String!
+  $model: String
+  $browser: String
+  $browserVersion: String
+  $lockerRoomType: String!
+  $name: String!
+) {
+  trackSendMessage(
+    lockerRoomType: $lockerRoomType
+    name: $name
+    sport: $sport
+    league: $league
+    channel: $channel
+    type: $type
+    platform: $platform
+    webDisplaySize: $webDisplaySize
+    pageName: $pageName
+    model: $model
+    browser: $browser
+    browserVersion: $browserVersion
+  ) {
+    objectID
+    objectType
+    success
+    timestamp
+  }
+}

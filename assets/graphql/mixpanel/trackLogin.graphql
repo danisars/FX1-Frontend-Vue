@@ -1,0 +1,26 @@
+mutation trackLogin(
+  $loginMethod: String!
+  $platform: String!
+  $webDisplaySize: String
+  $pageName: String!
+  $model: String
+  $browser: String
+  $browserVersion: String
+  $os: String
+) {
+  trackLogin(
+    loginMethod: $loginMethod
+    platform: $platform
+    webDisplaySize: $webDisplaySize
+    pageName: $pageName
+    model: $model
+    browser: $browser
+    browserVersion: $browserVersion
+    os: $os
+  ) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

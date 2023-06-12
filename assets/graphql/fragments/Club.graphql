@@ -1,0 +1,11 @@
+fragment ClubContents on Club {
+  name
+  slug
+  Avatar {
+    PhotoURL
+  }
+  CoverPhoto {
+    PhotoURL
+  }
+  leagueName
+}

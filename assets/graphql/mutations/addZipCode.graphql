@@ -1,0 +1,10 @@
+mutation addZipCode ($zipCode: String!) {
+  addZipCode (zipCode: $zipCode) {
+    zip
+    latitude
+    longitude
+    state
+    city
+    country
+  }
+}

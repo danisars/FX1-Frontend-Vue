@@ -1,0 +1,11 @@
+#import './fragment/Notification.graphql'
+
+query getNotifications($isRead: Boolean, $count: Int, $cursor: Int) {
+  getNotifications(isRead: $isRead, count: $count, cursor: $cursor) {
+    items {
+      ...NotificationContents
+    }
+    count
+    next
+  }
+}

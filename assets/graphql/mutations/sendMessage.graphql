@@ -1,0 +1,8 @@
+mutation sendMessage($channelSlug: String!, $text: String!, $chatID: String!) {
+  sendMessage(channelSlug: $channelSlug, text: $text, chatID: $chatID) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

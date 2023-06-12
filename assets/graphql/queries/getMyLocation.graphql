@@ -1,0 +1,15 @@
+query getMyLocation {
+  Me {
+    zipCode
+    ZipCode {
+      zip
+      latitude
+      longitude
+      state
+      city
+      country
+    }
+    id
+    username
+  }
+}

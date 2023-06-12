@@ -1,0 +1,7 @@
+#import '../fragments/League.graphql'
+
+query getLeague($id: String, $slug: String) {
+  getLeague(id: $id, slug: $slug) {
+    ...LeagueContents
+  }
+}

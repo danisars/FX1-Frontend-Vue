@@ -1,0 +1,13 @@
+query Supporting {
+  Supporting {
+    slug
+    totalUnreadMessagesCount
+    ChannelGroups{
+      slug
+      Channels {
+        slug
+        unreadMessagesCount
+      }
+    }
+  }
+}

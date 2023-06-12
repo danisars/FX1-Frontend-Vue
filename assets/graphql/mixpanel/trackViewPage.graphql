@@ -1,0 +1,36 @@
+mutation trackViewPage(
+  $platform: String!
+  $webDisplaySize: String
+  $pageName: String!
+  $model: String
+  $browser: String
+  $browserVersion: String
+  $os: String
+
+  $channel: String
+  $name: String
+  $lockerRoomType: String
+  $sport: String
+  $league: String
+) {
+  trackViewPage(
+    platform: $platform
+    webDisplaySize: $webDisplaySize
+    pageName: $pageName
+    model: $model
+    browser: $browser
+    browserVersion: $browserVersion
+    os: $os
+
+    channel: $channel
+    name: $name
+    lockerRoomType: $lockerRoomType
+    sport: $sport
+    league: $league
+  ) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

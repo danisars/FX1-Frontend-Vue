@@ -1,0 +1,16 @@
+#import './fragment/User.graphql'
+
+fragment UserRoleContents on UserRole {
+  userID
+  uid
+  role
+  status
+  isPrimaryOwner
+  User {
+    ...UserContents
+  }
+  UserRoleType {
+    id
+    name
+  }
+}

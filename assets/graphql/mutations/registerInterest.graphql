@@ -1,0 +1,8 @@
+mutation registerInterest($type: String!, $data: JSON) {
+  registerInterest(type: $type, data: $data) {
+    timestamp
+    success
+    objectID
+    objectType
+  }
+}

@@ -1,0 +1,11 @@
+#import './Channel.graphql'
+
+fragment ChannelGroupsContents on ChannelGroup {
+  id
+  name
+  slug
+  group
+  Channels {
+    ...ChannelContents
+  }
+}

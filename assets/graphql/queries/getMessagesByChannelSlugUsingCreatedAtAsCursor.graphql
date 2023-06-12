@@ -1,0 +1,22 @@
+#import '../fragments/Message.graphql'
+
+query getMessagesByChannelSlugUsingCreatedAtAsCursor(
+  $channelSlug: String!
+  $count: Int
+  $cursor: String
+  $direction: String! #up, down
+) {
+  getMessagesByChannelSlugUsingCreatedAtAsCursor(
+    channelSlug: $channelSlug
+    count: $count
+    cursor: $cursor
+    direction: $direction
+  ) {
+    items {
+      ...MessageContents
+    }
+    count
+    next
+    total
+  }
+}
